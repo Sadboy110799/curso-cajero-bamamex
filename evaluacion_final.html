@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Evaluación Final - Manejo del Cajero Automático</title>
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+<header>
+  <h1>Evaluación Final</h1>
+  <p>Capacitación: Manejo del Cajero Automático - Banamex</p>
+</header>
+
+<section>
+  <h2>Instrucciones</h2>
+  <p>Contesta las siguientes preguntas para evaluar tus conocimientos adquiridos en el curso. Elige la opción correcta en cada caso.</p>
+
+  <form id="form-evaluacion">
+    <h3>1. ¿Qué componente permite insertar la tarjeta en el cajero automático?</h3>
+    <input type="radio" name="p1" value="correcto"> Lector de tarjetas.<br>
+    <input type="radio" name="p1" value="incorrecto"> Pantalla táctil.<br>
+    <input type="radio" name="p1" value="incorrecto"> Teclado numérico.<br><br>
+
+    <h3>2. ¿Cuál es una operación común en el cajero automático?</h3>
+    <input type="radio" name="p2" value="incorrecto"> Solicitar una nueva tarjeta.<br>
+    <input type="radio" name="p2" value="correcto"> Retirar dinero.<br>
+    <input type="radio" name="p2" value="incorrecto"> Abrir una cuenta nueva.<br><br>
+
+    <h3>3. ¿Qué debes hacer al ingresar tu PIN en el cajero?</h3>
+    <input type="radio" name="p3" value="incorrecto"> Compartirlo con amigos.<br>
+    <input type="radio" name="p3" value="correcto"> Tapar el teclado mientras lo ingresas.<br>
+    <input type="radio" name="p3" value="incorrecto"> Anotarlo en la tarjeta.<br><br>
+
+    <h3>4. ¿Qué hacer si el cajero no entrega el comprobante de depósito?</h3>
+    <input type="radio" name="p4" value="correcto"> Guardar el folio y reportarlo.<br>
+    <input type="radio" name="p4" value="incorrecto"> Volver a depositar.<br>
+    <input type="radio" name="p4" value="incorrecto"> Ignorarlo.<br><br>
+
+    <h3>5. ¿Qué debes hacer si el cajero retiene tu tarjeta?</h3>
+    <input type="radio" name="p5" value="incorrecto"> Esperar a que salga.<br>
+    <input type="radio" name="p5" value="correcto"> Llamar al banco y reportarlo.<br>
+    <input type="radio" name="p5" value="incorrecto"> Golpear el cajero.<br><br>
+
+    <button type="button" onclick="calificar()">Enviar Evaluación</button>
+  </form>
+
+  <div id="resultado" style="margin-top:20px; font-weight: bold;"></div>
+
+  <a class="boton-volver" href="index.html">← Volver al Menú Principal</a>
+</section>
+
+<footer>
+  <p>&copy; 2025 Banamex. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+function calificar() {
+  let correctas = 0;
+  const total = 5;
+  const respuestas = document.querySelectorAll('input[type=radio]:checked');
+
+  respuestas.forEach((respuesta) => {
+    if (respuesta.value === "correcto") {
+      correctas++;
+    }
+  });
+
+  let mensaje = "Obtuviste " + correctas + " de " + total + " respuestas correctas. ";
+  if (correctas === total) {
+    mensaje += "¡Excelente trabajo!";
+  } else if (correctas >= 3) {
+    mensaje += "Buen esfuerzo, pero puedes mejorar.";
+  } else {
+    mensaje += "Te recomendamos repasar el curso.";
+  }
+
+  document.getElementById('resultado').innerText = mensaje;
+}
+</script>
+
+</body>
+</html>
