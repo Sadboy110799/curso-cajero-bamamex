@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contenido del Subtema</title>
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+  <header>
+    <h1 id="tituloSubtema">Subtema</h1>
+  </header>
+
+  <main>
+    <section id="contenidoSubtema">
+      <!-- Aquí se carga la info dependiendo del subtema -->
+    </section>
+
+    <div class="evaluacion">
+      <h2>Evaluación del Subtema</h2>
+      <p>Próximamente aquí pondrías algunas preguntas de evaluación.</p>
+    </div>
+
+    <a href="index.html" class="boton">Volver al Menú</a>
+  </main>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const subtema = params.get('subtema');
+
+    const subtemas = {
+      1: {
+        titulo: "I. Introducción al cajero automático de Banamex",
+        texto: "Aquí se explica qué es un cajero automático y su importancia para Banamex.",
+        imagen: "img/cajero1.jpg",
+        video: "https://www.youtube.com/embed/TU_VIDEO_ID"
+      },
+      2: {
+        titulo: "II. Operaciones comunes en el cajero",
+        texto: "Consulta de saldo, retiro de efectivo, cambio de PIN.",
+        imagen: "img/operaciones.jpg",
+        video: "https://www.youtube.com/embed/TU_VIDEO_ID"
+      },
+      3: {
+        titulo: "III. Manejo de tarjetas y PIN",
+        texto: "Cómo cuidar la tarjeta y mantener seguro el PIN.",
+        imagen: "img/tarjeta_pin.jpg",
+        video: "https://www.youtube.com/embed/TU_VIDEO_ID"
+      },
+      4: {
+        titulo: "IV. Depósitos en cajero automático",
+        texto: "Cómo realizar depósitos en efectivo o cheque correctamente.",
+        imagen: "img/depositos.jpg",
+        video: "https://www.youtube.com/embed/TU_VIDEO_ID"
+      },
+      5: {
+        titulo: "V. Solución de problemas comunes en cajeros automáticos",
+        texto: "¿Qué hacer si tu tarjeta se traga? ¿Si no da dinero? Consejos de seguridad.",
+        imagen: "img/problemas.jpg",
+        video: "https://www.youtube.com/embed/TU_VIDEO_ID"
+      }
+    };
+
+    const data = subtemas[subtema];
+    if (data) {
+      document.getElementById('tituloSubtema').textContent = data.titulo;
+      document.getElementById('contenidoSubtema').innerHTML = `
+        <p>${data.texto}</p>
+        <img src="${data.imagen}" alt="Imagen relacionada" style="width:80%; margin:20px 0;">
+        <div>
+          <iframe width="80%" height="315" src="${data.video}" frameborder="0" allowfullscreen></iframe>
+        </div>
+      `;
+    }
+  </script>
+</body>
+</html>
